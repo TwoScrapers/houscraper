@@ -8,7 +8,8 @@ class MovieScraperSpider(scrapy.Spider):
     name = "Houscraper"
     allowed_domains = ["www.dygod.net"]
     start_urls = [
-        "http://www.dygod.net",
+        #"http://www.dygod.net",
+        "http://www.remax.ca/on/toronto-real-estate/#queryText=Toronto,+on&minPrice=200000&coordinatesFor=Toronto,+ON&mode=Box&province=ON&cityName=Toronto&zoom=10&south=43.24541188674621&west=-80.22315216064455&north=44.06016562961736&east=-78.54224395751955&maxPrice=700000&mainlist.listingPageSize=20&mainlist.groupByCities=true&listingtab.index=1&minBedroomNumber=3&propertyTypeIds=20,50&showTypeIds=&minBathroomNumber=&minSquareFeet=&maxSquareFeet=&minLotSize=&maxLotSize=&minWalkScore=0&maxWalkScore=100&minTransitScore=0&maxTransitScore=100&minFee=0&maxFee=",
         #"http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/"
     ]
     
@@ -18,7 +19,7 @@ class MovieScraperSpider(scrapy.Spider):
         #with open(filename, 'wb') as f:
             #f.write(response.body)
         sender = 'chao.bian@hotmail.com'
-        receivers = ['cbian@mit.edu']
+        receivers = ['baobeituzi1002@hotmail.com']
         for sel in response.xpath('//div[@class="co_content8"]/ul/table/tr/td'):
             item = HouscraperItem()
             item['title'] = sel.xpath('a/text()').extract()
