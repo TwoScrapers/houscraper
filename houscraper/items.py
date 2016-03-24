@@ -10,5 +10,5 @@ import scrapy
 
 class HouscraperItem(scrapy.Item):
     # define the fields for your item here like:
-    title = scrapy.Field()
+    price = scrapy.Field()
     #pass

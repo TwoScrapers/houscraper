@@ -21,7 +21,7 @@ class MovieScraperSpider(scrapy.Spider):
         sender = 'chao.bian@hotmail.com'
         receivers = ['baobeituzi1002@hotmail.com']
         #for sel in response.xpath('//div[@class="co_content8"]/ul/table/tr/td'):
-        for sel in response.xpath('//div[@class="draggableListingItem teaser padding16"/ul/li'):    
+        for sel in response.xpath('//div[contains(@class, "draggableListingItem teaser padding16")]/ul/li[@class="propertyPrice"]'):    
             item = HouscraperItem()
             item['price'] = sel.xpath('a/text()').extract()
             if item['price']:
@@ -33,8 +33,9 @@ class MovieScraperSpider(scrapy.Spider):
                   smtpObj.starttls() 
                   smtpObj.ehlo() 
                   smtpObj.login(sender, "Bcyx10020719!") 
-                  smtpObj.sendmail(sender, receivers, "found")         
+                  smtpObj.sendmail(sender, receivers, "found price: " + unicode(price))         
                   print "Successfully sent email"
+                  break
 ##            if item['title']: 
 ##                movie = item['title'].pop()
 ##                print unicode(movie)
